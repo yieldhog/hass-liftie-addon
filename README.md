@@ -1,4 +1,4 @@
-# yieldhog Home Assistant Add-ons
+# Home Assistant Add-ons
 
 A Home Assistant add-on repository.
 
