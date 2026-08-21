@@ -1,0 +1,10 @@
+# Per-architecture base image the Supervisor builds FROM.
+# Home Assistant's base images are Alpine with s6-overlay preinstalled.
+build_from:
+  aarch64: ghcr.io/home-assistant/aarch64-base:latest
+  amd64: ghcr.io/home-assistant/amd64-base:latest
+  armv7: ghcr.io/home-assistant/armv7-base:latest
+labels:
+  org.opencontainers.image.title: Liftie
+  org.opencontainers.image.source: https://github.com/yieldhog/hass-liftie-addon
+  org.opencontainers.image.licenses: BSD-3-Clause
