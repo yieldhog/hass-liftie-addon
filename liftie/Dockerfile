@@ -20,7 +20,11 @@ RUN git clone --depth 1 --branch "v${LIFTIE_VERSION}" \
 WORKDIR /opt/liftie
 RUN npm install --omit=dev --no-audit --no-fund
 
+# Startup script: applies the optional resort allowlist, then runs Liftie.
+COPY run.sh /run.sh
+RUN chmod +x /run.sh
+
 EXPOSE 3000
 
 # The s6-overlay init from the base image runs first, then execs this.
-CMD [ "node", "app.js" ]
+CMD [ "/run.sh" ]

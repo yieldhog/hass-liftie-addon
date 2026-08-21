@@ -18,6 +18,32 @@ lift status comes from your own instance instead of a metered API.
 4. Find **Liftie** in the store, open it, and click **Install**.
 5. Click **Start**. (First start builds the image and may take a few minutes.)
 
+## Configuration
+
+```yaml
+resorts: []
+```
+
+- **`resorts`** — an optional allowlist of resort slugs.
+  - **Empty (default):** Liftie tracks *every* resort it bundles and re-scrapes
+    them all roughly every 30 minutes. This produces harmless `403/404` log
+    noise for resorts that block scrapers, and a lot of outbound requests.
+  - **Set** (e.g. `["vail"]`, or several): on start, the add-on removes every
+    other resort so Liftie only knows about — and only scrapes — the ones you
+    list. Slugs match the `/api/resort/<slug>` path (e.g. `vail`,
+    `winter-park`). Add one line per resort in the add-on's **Configuration**
+    tab.
+
+Example (Configuration tab):
+
+```yaml
+resorts:
+  - vail
+  - winter-park
+```
+
+> Changing this list takes effect on the next add-on **restart**.
+
 ## Using it with the Ski Resort integration
 
 In the Ski Resort integration's options, set:

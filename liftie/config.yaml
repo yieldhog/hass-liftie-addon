@@ -1,7 +1,7 @@
 # Home Assistant add-on manifest for Liftie.
 # Docs: https://developers.home-assistant.io/docs/add-ons/configuration
 name: Liftie
-version: "4.4.0-1"
+version: "4.4.0-2"
 slug: liftie
 description: Self-hosted Liftie — free, unlimited ski-resort lift status API
 url: https://github.com/yieldhog/hass-liftie-addon/tree/main/liftie
@@ -17,3 +17,11 @@ ports:
   3000/tcp: 3000
 ports_description:
   3000/tcp: Liftie HTTP API (used as the integration's "Liftie base URL")
+# Optional allowlist of resort slugs. Empty = track every resort Liftie bundles
+# (it re-scrapes them all every ~30 min). List slugs (e.g. "vail") to limit
+# scraping to just those. Slugs match the /api/resort/<slug> path.
+options:
+  resorts: []
+schema:
+  resorts:
+    - str
