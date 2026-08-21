@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="250" viewBox="0 0 500 250">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b3a67"/>
+      <stop offset="1" stop-color="#4a6fa5"/>
+    </linearGradient>
+    <linearGradient id="peak" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eef4fb"/>
+      <stop offset="1" stop-color="#b9cbe0"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="250" fill="#ffffff"/>
+  <!-- badge -->
+  <g transform="translate(20,25)">
+    <rect width="200" height="200" rx="42" fill="url(#sky)"/>
+    <path d="M0 168 L58 92 L100 138 L142 75 L200 168 Z" fill="url(#peak)"/>
+    <line x1="18" y1="55" x2="182" y2="94" stroke="#0f1830" stroke-width="3.2" stroke-linecap="round"/>
+    <line x1="31" y1="58" x2="31" y2="168" stroke="#0f1830" stroke-width="5.5" stroke-linecap="round"/>
+    <line x1="169" y1="92" x2="169" y2="168" stroke="#0f1830" stroke-width="5.5" stroke-linecap="round"/>
+    <g>
+      <line x1="94" y1="74" x2="94" y2="92" stroke="#0f1830" stroke-width="4" stroke-linecap="round"/>
+      <path d="M81 92 h26 v8 h-26 z" fill="#f5a623"/>
+      <path d="M81 100 v11" stroke="#f5a623" stroke-width="4" stroke-linecap="round"/>
+      <path d="M107 100 v11" stroke="#f5a623" stroke-width="4" stroke-linecap="round"/>
+      <path d="M78 111 h32" stroke="#f5a623" stroke-width="4" stroke-linecap="round"/>
+    </g>
+  </g>
+  <!-- wordmark -->
+  <text x="248" y="118" font-family="'DejaVu Sans','Helvetica Neue',Arial,sans-serif"
+        font-size="62" font-weight="700" fill="#2b3a67">Liftie</text>
+  <text x="250" y="158" font-family="'DejaVu Sans','Helvetica Neue',Arial,sans-serif"
+        font-size="22" font-weight="400" fill="#6a7f9c">Lift status add-on</text>
+</svg>

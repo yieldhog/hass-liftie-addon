@@ -46,3 +46,16 @@ You can sanity-check the add-on directly in a browser:
 - Ports: the add-on maps container port **3000** to host port **3000**. If 3000
   is already in use on your host, change the mapping on the add-on's
   **Configuration → Network** tab and update the integration's base URL to match.
+
+## Disclaimer
+
+- This add-on only **packages and runs** [Liftie](https://github.com/pirxpilot/liftie);
+  it is **not affiliated with or endorsed by** Liftie/pirxpilot, Home Assistant,
+  OpenSnow, or any ski resort.
+- Lift status is scraped from public resort sites on a best-effort basis and may
+  be **delayed, incomplete, or wrong**. Do not rely on it for safety decisions;
+  always confirm conditions with the resort.
+- Provided **as-is, without warranty** (see [LICENSE](../LICENSE)). The packaging
+  here is MIT-licensed; Liftie itself is BSD-3-Clause by its own authors.
+- Please use responsibly — keep the integration's poll interval reasonable so you
+  don't hammer resort websites.

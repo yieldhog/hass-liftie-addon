@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b3a67"/>
+      <stop offset="1" stop-color="#4a6fa5"/>
+    </linearGradient>
+    <linearGradient id="peak" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eef4fb"/>
+      <stop offset="1" stop-color="#b9cbe0"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="52" fill="url(#sky)"/>
+  <!-- mountains -->
+  <path d="M0 214 L74 118 L128 176 L182 96 L256 214 Z" fill="url(#peak)"/>
+  <path d="M74 118 L92 141 L66 150 L84 163 L60 176 L128 176 Z" fill="#dbe6f2" opacity="0.7"/>
+  <path d="M182 96 L200 120 L172 128 L192 142 L164 156 L214 156 Z" fill="#dbe6f2" opacity="0.7"/>
+  <!-- lift cable -->
+  <line x1="24" y1="70" x2="232" y2="120" stroke="#0f1830" stroke-width="4" stroke-linecap="round"/>
+  <!-- towers -->
+  <line x1="40" y1="74" x2="40" y2="214" stroke="#0f1830" stroke-width="7" stroke-linecap="round"/>
+  <line x1="216" y1="117" x2="216" y2="214" stroke="#0f1830" stroke-width="7" stroke-linecap="round"/>
+  <!-- chair -->
+  <g>
+    <line x1="120" y1="94" x2="120" y2="118" stroke="#0f1830" stroke-width="5" stroke-linecap="round"/>
+    <path d="M104 118 h32 v10 h-32 z" fill="#f5a623"/>
+    <path d="M104 128 v14" stroke="#f5a623" stroke-width="5" stroke-linecap="round"/>
+    <path d="M136 128 v14" stroke="#f5a623" stroke-width="5" stroke-linecap="round"/>
+    <path d="M100 142 h40" stroke="#f5a623" stroke-width="5" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,0 +1,4 @@
+# Rasterized artifacts are committed intentionally (icon.png/logo.png); the SVG
+# sources are kept alongside them. Nothing to ignore yet, but keep local cruft out.
+*.log
+.DS_Store
