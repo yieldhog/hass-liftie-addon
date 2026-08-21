@@ -40,5 +40,29 @@ else
     fi
 fi
 
+# --- Scrape frequency -------------------------------------------------------
+# Liftie hard-codes its refresh intervals in lib/lifts/index.js and offers no
+# config for them, so patch the two constants from the add-on options (minutes).
+LIFTS_FILE=/opt/liftie/lib/lifts/index.js
+ACTIVE_MIN="$(jq -r '.active_interval // 1' "$OPTIONS")"
+INACTIVE_MIN="$(jq -r '.inactive_interval // 30' "$OPTIONS")"
+active_ms=$((ACTIVE_MIN * 60 * 1000))
+inactive_ms=$((INACTIVE_MIN * 60 * 1000))
+
+if [ -f "$LIFTS_FILE" ]; then
+    sed -i \
+        -e "s/const shortInterval = 60 \* 1000;/const shortInterval = ${active_ms};/" \
+        -e "s/const longInterval = 30 \* shortInterval;/const longInterval = ${inactive_ms};/" \
+        "$LIFTS_FILE"
+    if grep -q "const shortInterval = ${active_ms};" "$LIFTS_FILE" \
+        && grep -q "const longInterval = ${inactive_ms};" "$LIFTS_FILE"; then
+        bashio::log.info \
+            "Scrape intervals set: active ${ACTIVE_MIN} min, inactive ${INACTIVE_MIN} min."
+    else
+        bashio::log.warning \
+            "Could not patch Liftie's scrape intervals (upstream may have changed); using its defaults."
+    fi
+fi
+
 cd /opt/liftie
 exec node app.js

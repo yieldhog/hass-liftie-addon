@@ -22,6 +22,8 @@ lift status comes from your own instance instead of a metered API.
 
 ```yaml
 resorts: []
+active_interval: 1
+inactive_interval: 30
 ```
 
 - **`resorts`** — an optional allowlist of resort slugs.
@@ -34,15 +36,25 @@ resorts: []
     `winter-park`). Add one line per resort in the add-on's **Configuration**
     tab.
 
-Example (Configuration tab):
+- **`active_interval`** (minutes, default `1`) — how often Liftie refreshes a
+  resort that was **requested recently** (e.g. right after the integration polls
+  it).
+- **`inactive_interval`** (minutes, default `30`) — how often Liftie refreshes
+  **every** resort it tracks, even if nothing requested it. This is the main
+  "how often does it scrape" knob — raise it to scrape less often.
+
+Example (Configuration tab) — only Vail, refreshed at most every 15 minutes:
 
 ```yaml
 resorts:
   - vail
-  - winter-park
+active_interval: 5
+inactive_interval: 15
 ```
 
-> Changing this list takes effect on the next add-on **restart**.
+> Changes take effect on the next add-on **restart**. Since the Ski Resort
+> integration polls on its own interval (default every 3 hours), you rarely need
+> the intervals very short — the integration reads whatever Liftie last scraped.
 
 ## Using it with the Ski Resort integration
 

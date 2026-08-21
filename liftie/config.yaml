@@ -1,7 +1,7 @@
 # Home Assistant add-on manifest for Liftie.
 # Docs: https://developers.home-assistant.io/docs/add-ons/configuration
 name: Liftie
-version: "4.4.0-2"
+version: "4.4.0-3"
 slug: liftie
 description: Self-hosted Liftie — free, unlimited ski-resort lift status API
 url: https://github.com/yieldhog/hass-liftie-addon/tree/main/liftie
@@ -20,8 +20,17 @@ ports_description:
 # Optional allowlist of resort slugs. Empty = track every resort Liftie bundles
 # (it re-scrapes them all every ~30 min). List slugs (e.g. "vail") to limit
 # scraping to just those. Slugs match the /api/resort/<slug> path.
+#
+# active_interval / inactive_interval (minutes) control how often Liftie
+# re-scrapes: "active" = a resort requested recently (default 1 min), "inactive"
+# = every resort regardless of requests (default 30 min). Raise them to scrape
+# less often. Applied at startup by patching Liftie's hard-coded intervals.
 options:
   resorts: []
+  active_interval: 1
+  inactive_interval: 30
 schema:
   resorts:
     - str
+  active_interval: int(1,)
+  inactive_interval: int(1,)

@@ -3,6 +3,13 @@
 All notable changes to the Liftie add-on are documented here. Versions track
 the bundled Liftie release with a `-N` packaging suffix (e.g. `4.4.0-1`).
 
+## 4.4.0-3
+
+- Add **`active_interval`** and **`inactive_interval`** options (minutes) to
+  control how often Liftie re-scrapes. Liftie hard-codes these (1 min / 30 min)
+  with no config, so the add-on patches them at startup. Raise
+  `inactive_interval` to scrape less often.
+
 ## 4.4.0-2
 
 - Add an optional **`resorts`** allowlist. Empty keeps the default behavior
