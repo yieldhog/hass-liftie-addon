@@ -10,12 +10,16 @@ ENV LANG=C.UTF-8 \
 # cover any dependency that compiles a native addon via node-gyp.
 RUN apk add --no-cache nodejs npm git make python3 g++
 
-# Pin Liftie to a known-good release; fall back to the default branch if the
-# tag naming ever changes upstream.
-ARG LIFTIE_VERSION=4.4.0
-RUN git clone --depth 1 --branch "v${LIFTIE_VERSION}" \
-        https://github.com/pirxpilot/liftie /opt/liftie \
-    || git clone --depth 1 https://github.com/pirxpilot/liftie /opt/liftie
+# Pin Liftie to an exact commit for reproducible builds. Upstream publishes no
+# release tags, so a commit SHA is the only real pin — and it must match the
+# resort list embedded in config.yaml (regenerate both with scripts/update-resorts.sh).
+ARG LIFTIE_COMMIT=2d0608df83d833e76e44e1aa42aedecb9cff5041
+RUN mkdir -p /opt/liftie \
+    && cd /opt/liftie \
+    && git init -q \
+    && git remote add origin https://github.com/pirxpilot/liftie \
+    && git fetch -q --depth 1 origin "${LIFTIE_COMMIT}" \
+    && git checkout -q FETCH_HEAD
 
 WORKDIR /opt/liftie
 RUN npm install --omit=dev --no-audit --no-fund

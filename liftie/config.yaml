@@ -1,7 +1,7 @@
 # Home Assistant add-on manifest for Liftie.
 # Docs: https://developers.home-assistant.io/docs/add-ons/configuration
 name: Liftie
-version: "4.4.0-3"
+version: "4.4.0-4"
 slug: liftie
 description: Self-hosted Liftie — free, unlimited ski-resort lift status API
 url: https://github.com/yieldhog/hass-liftie-addon/tree/main/liftie
@@ -31,6 +31,6 @@ options:
   inactive_interval: 30
 schema:
   resorts:
-    - str
+    - "list(3cime|49-degrees-north|abasin|alpe-lusia-san-pellegrino|alpine|alta|alta-badia|alyeska|angel-fire|arabba|aspen-highlands|aspen-mountain|attitash|beavercreek|berkshire-east|big-sky|big-white|blue-mountain-pa|bluemountain|bogusbasin|bolton-valley|boreal|breck|brettonwoods|brianhead|bridger-bowl|brighton|bromley-mountain|burke-mountain|buttermilk|caberfae-peaks|calabogie|camelback|campo-felice|canada-olympic-park|cannon|cataloochee|catedral|cervino|chamonix|chinapeak|civetta|claviere|copper|coronetpeak|cortina-d-ampezzo|courchevel|cranmore-mountain|cransmontana|crested-butte|crystal-mountain|cypress-mountain|deer-valley|devils-head|diamondpeak|donner-ski-ranch|eldora|falls-creek|flims-laax-falera|folgaria|folgarida-marilleva|forni|gore-mountain|grand-targhee|granite-peak|greek-peak|grouse|gunstock|heavenly|hochfuegen|hochzeiger|homewood|hoodoo|hunter|ischgl-silvretta-arena|jackson-hole|jay-peak|jiminypeak|june-mountain|keystone|killington|king-pine|kirkwood|kitzbuehel|lamolina|laplagne|larosiere|lavarone|lesarcs|lesmenuires|loon|loveland|mad-river-glen|madonna-di-campiglio|mammoth-lakes|manning-park|megeve|meribel|mission-ridge|monarch|monte-amiata|monte-bondone|montegenevre|monterosa|morzine|mount-sunapee|mountsnow|mt-buller|mt-hotham|mt-seymour|mt-spokane|mtbachelor|mtbrighton|mthigh|mthood|mtpeter|mtrose|niseko|northstar|okemo|ovindoli|owlshead|paganella|palisades|parkcity|pats-peak|peio|perisher|piancavallo|pico|pinzolo|pitztaler-gletscher|plan-de-corones|pleasant-mountain|pontedilegno-tonale|ragged-mountain|ravascletto-zoncolan|red-lodge-mountain|red-mountain|rio-pusteria-bressanone|roccaraso|saddleback|san-martino-di-castrozza-passo-rolle|sansicario|sappada|sasquatch-mountain|sauris|sauze|schweitzer|sella|serfaus-fiss-ladis|sestriere|shawnee-mountain|sierra|silver-star|skiwelt|smuggs|snow-ridge|snow-valley|snowbasin|snowbird|snowmass|snowshoe|soelden|solitude|st-anton-am-arlberg|steamboat|stevens|stowe|stratton|sugarbowl|sugarbush|sugarloaf|sun-peaks|sunday-river|sunshine-village|sunvalley|swain|tahoe-donner|taos|tarvisio|telluride|thredbo|tignes|timberline-lodge|tremblant|vail|val-di-fassa|val-di-fiemme|val-gardena|valdisere|verbier|waterville|west-mountain|whistler-blackcomb|whiteface|whitefish|wildcat|windham|winter-park|winterplace)"
   active_interval: int(1,)
   inactive_interval: int(1,)

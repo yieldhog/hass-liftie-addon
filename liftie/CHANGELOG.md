@@ -3,6 +3,15 @@
 All notable changes to the Liftie add-on are documented here. Versions track
 the bundled Liftie release with a `-N` packaging suffix (e.g. `4.4.0-1`).
 
+## 4.4.0-4
+
+- The **`resorts`** option is now a **searchable dropdown** of every bundled
+  resort (201), so you pick valid slugs instead of typing them — no more
+  guessing spellings.
+- **Pin Liftie to an exact commit** (`2d0608d`) instead of a non-existent
+  `v4.4.0` tag, so builds are reproducible and the dropdown always matches what
+  ships. Added `scripts/update-resorts.sh` to regenerate the pin + list together.
+
 ## 4.4.0-3
 
 - Add **`active_interval`** and **`inactive_interval`** options (minutes) to

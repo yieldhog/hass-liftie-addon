@@ -26,15 +26,16 @@ active_interval: 1
 inactive_interval: 30
 ```
 
-- **`resorts`** — an optional allowlist of resort slugs.
-  - **Empty (default):** Liftie tracks *every* resort it bundles and re-scrapes
+- **`resorts`** — an optional allowlist of resorts.
+  - In the **Configuration** tab, each entry is a **searchable dropdown** of
+    every resort this add-on bundles (start typing to filter, e.g. `vail`) — so
+    you pick valid slugs instead of guessing spellings.
+  - **Empty (default):** Liftie tracks *every* bundled resort and re-scrapes
     them all roughly every 30 minutes. This produces harmless `403/404` log
     noise for resorts that block scrapers, and a lot of outbound requests.
-  - **Set** (e.g. `["vail"]`, or several): on start, the add-on removes every
-    other resort so Liftie only knows about — and only scrapes — the ones you
-    list. Slugs match the `/api/resort/<slug>` path (e.g. `vail`,
-    `winter-park`). Add one line per resort in the add-on's **Configuration**
-    tab.
+  - **Set:** on start, the add-on removes every other resort so Liftie only
+    knows about — and only scrapes — the ones you picked. The chosen slug is
+    also what you use in the integration and at `/api/resort/<slug>`.
 
 - **`active_interval`** (minutes, default `1`) — how often Liftie refreshes a
   resort that was **requested recently** (e.g. right after the integration polls
