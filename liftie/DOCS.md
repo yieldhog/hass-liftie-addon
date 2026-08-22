@@ -43,6 +43,9 @@ inactive_interval: 30
 - **`inactive_interval`** (minutes, default `30`) — how often Liftie refreshes
   **every** resort it tracks, even if nothing requested it. This is the main
   "how often does it scrape" knob — raise it to scrape less often.
+- **`user_agent`** (optional) — sets Liftie's `LIFTIE_USER_AGENT`. Some resorts
+  return `403` to the default scraper UA; a browser-like string can help, e.g.
+  `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36`.
 
 Example (Configuration tab) — only Vail, refreshed at most every 15 minutes:
 
@@ -85,6 +88,23 @@ You can sanity-check the add-on directly in a browser:
 - Ports: the add-on maps container port **3000** to host port **3000**. If 3000
   is already in use on your host, change the mapping on the add-on's
   **Configuration → Network** tab and update the integration's base URL to match.
+
+## Keeping the backend up to date
+
+Liftie has no release tags; it's updated with new commits — mostly **new
+resorts** and **parser fixes** when a resort changes its website. A stale
+backend can cause a resort's lift status to silently stop updating, so it's
+worth refreshing periodically **during ski season**.
+
+This repo checks for you: a weekly GitHub Action
+([`update-check.yml`](../.github/workflows/update-check.yml)) compares the pinned
+Liftie commit against upstream and, when it has moved, opens a **pull request**
+that repins the commit, regenerates the resort dropdown, and bumps the version.
+So "when should I update?" = "when a *Update Liftie backend* PR appears." Review
+and merge it, then update the add-on in Home Assistant.
+
+To update manually instead, run `scripts/update-resorts.sh` (optionally with a
+git ref), add a CHANGELOG entry, and push.
 
 ## Disclaimer
 

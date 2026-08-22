@@ -1,0 +1,43 @@
+name: Check for Liftie updates
+
+# Weekly (and on-demand) check for new upstream Liftie commits. When upstream
+# has moved, this repins the commit, regenerates the resort dropdown, bumps the
+# add-on version, and opens a PR — so you get a clear signal when it's time to
+# update the backend (most relevant during ski season, when parser fixes land).
+
+on:
+  schedule:
+    - cron: "0 12 * * 1" # Mondays 12:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    name: Sync pinned Liftie
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Regenerate pin + resort list + version
+        run: ./scripts/update-resorts.sh
+      - name: Open a PR if anything changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "Update pinned Liftie backend"
+          branch: liftie-update
+          delete-branch: true
+          title: "Update Liftie backend"
+          labels: dependencies
+          body: |
+            Upstream [Liftie](https://github.com/pirxpilot/liftie) has new
+            commits. This automatically repins the commit, regenerates the
+            resort dropdown, and bumps the add-on version.
+
+            Review the diff (new/removed resorts, dependency bumps, parser
+            fixes), add a CHANGELOG entry, and merge to ship the update.
+
+            > Note: PRs opened by the built-in token don't trigger CI. Push an
+            > empty commit, or re-run CI, to build-test this PR — or add a PAT
+            > secret so it runs automatically.

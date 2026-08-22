@@ -33,5 +33,17 @@ PY
 # Pin the Dockerfile to the same commit.
 sed -i -E "s/(ARG LIFTIE_COMMIT=)[0-9a-f]+/\1${SHA}/" "$ROOT/liftie/Dockerfile"
 
-echo "Updated to Liftie ${SHA} with ${COUNT} resorts."
-echo "Remember to bump liftie/config.yaml version and update the CHANGELOG."
+# Bump the add-on version: <upstream package.json version>-<packaging N>.
+UPSTREAM_VER="$(python3 -c "import json;print(json.load(open('$TMP/liftie/package.json'))['version'])")"
+CUR="$(grep -E '^version:' "$ROOT/liftie/config.yaml" | sed -E 's/.*"(.*)".*/\1/')"
+CUR_BASE="${CUR%-*}"
+CUR_SUFFIX="${CUR##*-}"
+if [ "$CUR_BASE" = "$UPSTREAM_VER" ]; then
+    NEW_VER="${UPSTREAM_VER}-$((CUR_SUFFIX + 1))"
+else
+    NEW_VER="${UPSTREAM_VER}-1"
+fi
+sed -i -E "s/^(version: )\"[^\"]*\"/\1\"${NEW_VER}\"/" "$ROOT/liftie/config.yaml"
+
+echo "Updated to Liftie ${SHA} (${COUNT} resorts), add-on version ${NEW_VER}."
+echo "Add a CHANGELOG entry for ${NEW_VER} before releasing."

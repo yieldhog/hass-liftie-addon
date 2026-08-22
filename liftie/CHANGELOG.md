@@ -3,6 +3,17 @@
 All notable changes to the Liftie add-on are documented here. Versions track
 the bundled Liftie release with a `-N` packaging suffix (e.g. `4.4.0-1`).
 
+## 4.4.0-5
+
+- **Watchdog:** Supervisor now restarts the add-on automatically if Liftie's API
+  port stops responding.
+- **`user_agent` option:** set a browser-like `LIFTIE_USER_AGENT` to reduce the
+  `403` responses some resorts return to the default scraper UA.
+- **Automatic update checks:** a weekly workflow opens a PR when upstream Liftie
+  moves (repins the commit, regenerates the dropdown, bumps the version) — so
+  you get a clear signal when the backend is worth updating. The regen script
+  now bumps the version too.
+
 ## 4.4.0-4
 
 - The **`resorts`** option is now a **searchable dropdown** of every bundled

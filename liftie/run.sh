@@ -64,5 +64,13 @@ if [ -f "$LIFTS_FILE" ]; then
     fi
 fi
 
+# --- Optional custom User-Agent -------------------------------------------
+# A browser-like UA can reduce the 403s some resorts return to Liftie's default.
+UA="$(jq -r '.user_agent // ""' "$OPTIONS")"
+if [ -n "$UA" ]; then
+    export LIFTIE_USER_AGENT="$UA"
+    bashio::log.info "Using a custom scraping User-Agent."
+fi
+
 cd /opt/liftie
 exec node app.js
