@@ -3,6 +3,12 @@
 All notable changes to the Liftie add-on are documented here. Versions track
 the bundled Liftie release with a `-N` packaging suffix (e.g. `4.4.0-1`).
 
+## 4.4.0-6
+
+- The **`user_agent`** option now **defaults to a browser-like string** (Chrome
+  on Linux) so resort `403`s are reduced out of the box. Clear it to fall back
+  to Liftie's built-in User-Agent.
+
 ## 4.4.0-5
 
 - **Health check / watchdog:** the image now has a Docker `HEALTHCHECK` on the

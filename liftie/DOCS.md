@@ -43,9 +43,10 @@ inactive_interval: 30
 - **`inactive_interval`** (minutes, default `30`) — how often Liftie refreshes
   **every** resort it tracks, even if nothing requested it. This is the main
   "how often does it scrape" knob — raise it to scrape less often.
-- **`user_agent`** (optional) — sets Liftie's `LIFTIE_USER_AGENT`. Some resorts
-  return `403` to the default scraper UA; a browser-like string can help, e.g.
-  `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36`.
+- **`user_agent`** — sets Liftie's `LIFTIE_USER_AGENT`. **Defaults to a
+  browser-like string** (Chrome on Linux), because some resorts return `403` to
+  Liftie's built-in scraper UA. Clear the field to use Liftie's own default
+  instead, or set your own.
 
 Example (Configuration tab) — only Vail, refreshed at most every 15 minutes:
 
