@@ -7,12 +7,10 @@ description: Self-hosted Liftie — free, unlimited ski-resort lift status API
 url: https://github.com/yieldhog/hass-liftie-addon/tree/main/liftie
 # Alpine + s6-overlay base images provide the container init; see build.yaml.
 init: false
-# Supervisor restarts the add-on if the API port stops responding.
-watchdog: "tcp://[HOST]:[PORT:3000]"
+# Supervisor's watchdog uses the image's Docker HEALTHCHECK (see Dockerfile).
 arch:
   - aarch64
   - amd64
-  - armv7
 # Expose Liftie's HTTP API on the host so the Ski Resort integration (and any
 # browser) can reach it at http://<home-assistant-host>:3000.
 ports:

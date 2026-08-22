@@ -5,8 +5,11 @@ the bundled Liftie release with a `-N` packaging suffix (e.g. `4.4.0-1`).
 
 ## 4.4.0-5
 
-- **Watchdog:** Supervisor now restarts the add-on automatically if Liftie's API
-  port stops responding.
+- **Health check / watchdog:** the image now has a Docker `HEALTHCHECK` on the
+  API port, so Supervisor restarts the add-on automatically if Liftie stops
+  responding.
+- Dropped the deprecated **`armv7`** architecture (removed in Home Assistant
+  2025.12); the add-on builds for `aarch64` and `amd64`.
 - **`user_agent` option:** set a browser-like `LIFTIE_USER_AGENT` to reduce the
   `403` responses some resorts return to the default scraper UA.
 - **Automatic update checks:** a weekly workflow opens a PR when upstream Liftie

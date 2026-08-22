@@ -30,5 +30,9 @@ RUN chmod +x /run.sh
 
 EXPOSE 3000
 
+# Supervisor's watchdog reads this HEALTHCHECK; a failing API port -> restart.
+HEALTHCHECK --interval=1m --timeout=10s --start-period=45s --retries=3 \
+    CMD wget -q -O /dev/null http://127.0.0.1:3000/ || exit 1
+
 # The s6-overlay init from the base image runs first, then execs this.
 CMD [ "/run.sh" ]
