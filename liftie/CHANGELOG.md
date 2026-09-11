@@ -3,6 +3,14 @@
 All notable changes to the Liftie add-on are documented here. Versions track
 the bundled Liftie release with a `-N` packaging suffix (e.g. `4.4.0-1`).
 
+## 4.4.0-9 — 2026-09-11
+
+- Housekeeping. Versions **4.4.0-7 … 4.4.0-9** were automated re-pins with **no
+  functional change** — bundled Liftie stayed at commit `2d0608d`. The
+  update-check workflow now only bumps the version when Liftie actually changes,
+  and each real update writes its own changelog entry (old → new commit with a
+  compare link, resort additions/removals, and the upstream commit list).
+
 ## 4.4.0-6
 
 - The **`user_agent`** option now **defaults to a browser-like string** (Chrome

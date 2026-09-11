@@ -31,12 +31,15 @@ jobs:
           title: "Update Liftie backend"
           labels: dependencies
           body: |
-            Upstream [Liftie](https://github.com/pirxpilot/liftie) has new
-            commits. This automatically repins the commit, regenerates the
-            resort dropdown, and bumps the add-on version.
+            Upstream [Liftie](https://github.com/pirxpilot/liftie) has moved.
+            This repins the commit, regenerates the resort dropdown, bumps the
+            add-on version, and **writes the `liftie/CHANGELOG.md` entry**
+            (old → new commit with a compare link, resort additions/removals,
+            and the upstream commit list).
 
-            Review the diff (new/removed resorts, dependency bumps, parser
-            fixes), add a CHANGELOG entry, and merge to ship the update.
+            Review the generated changelog and diff — edit the entry if you want
+            to call out anything specific — then merge to ship the update. A no-op
+            week (upstream unchanged) opens no PR.
 
             > Note: PRs opened by the built-in token don't trigger CI. Push an
             > empty commit, or re-run CI, to build-test this PR — or add a PAT
