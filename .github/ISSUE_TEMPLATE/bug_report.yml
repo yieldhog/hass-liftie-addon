@@ -1,0 +1,74 @@
+name: 🐞 Bug report
+description: Something in the add-on isn't working as expected
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a report! Please search
+        [existing issues](../issues?q=is%3Aissue) first — yours may already be known.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the problem, and what you expected instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to …
+        2. Configure …
+        3. See error
+
+  - type: input
+    id: addon-version
+    attributes:
+      label: Add-on version
+      description: Settings → Add-ons → Liftie → the version shown at the top.
+      placeholder: e.g. 4.4.0-9
+    validations:
+      required: true
+
+  - type: input
+    id: ha-version
+    attributes:
+      label: Home Assistant version
+      description: Settings → About.
+      placeholder: e.g. 2026.9.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install-type
+    attributes:
+      label: Home Assistant installation type
+      description: Add-ons run only on these.
+      options:
+        - Home Assistant OS
+        - Home Assistant Supervised
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Add-on log output
+      description: >
+        Settings → Add-ons → Liftie → Log. Please redact anything you'd rather
+        not share.
+      render: shell
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I'm on the latest version of the add-on.
+          required: true
+        - label: I searched existing issues and didn't find a duplicate.
+          required: true
