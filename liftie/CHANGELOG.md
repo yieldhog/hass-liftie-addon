@@ -3,6 +3,17 @@
 All notable changes to the Liftie add-on are documented here. Versions track
 the bundled Liftie release with a `-N` packaging suffix (e.g. `4.4.0-1`).
 
+## 4.4.1-1 — 2026-09-21
+
+- Bundled Liftie version: **4.4.0 → 4.4.1**.
+- **Updated bundled Liftie** `2d0608d` → `c788691` ([upstream changes](https://github.com/pirxpilot/liftie/compare/2d0608df83d833e76e44e1aa42aedecb9cff5041...c788691e3b9019911efeba3c7c82bea1660090f0)).
+- Resorts: 201 bundled — no resort changes.
+- Upstream commits:
+  - upgrade `biome` to 2.5.13
+  - upgrade `limiter` to 4.1.0
+  - Release 4.4.1
+  - soft dependencies update
+
 ## 4.4.0-9 — 2026-09-11
 
 - Housekeeping. Versions **4.4.0-7 … 4.4.0-9** were automated re-pins with **no

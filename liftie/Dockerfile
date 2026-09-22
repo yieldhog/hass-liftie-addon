@@ -13,7 +13,7 @@ RUN apk add --no-cache nodejs npm git make python3 g++
 # Pin Liftie to an exact commit for reproducible builds. Upstream publishes no
 # release tags, so a commit SHA is the only real pin — and it must match the
 # resort list embedded in config.yaml (regenerate both with scripts/update-resorts.sh).
-ARG LIFTIE_COMMIT=2d0608df83d833e76e44e1aa42aedecb9cff5041
+ARG LIFTIE_COMMIT=c788691e3b9019911efeba3c7c82bea1660090f0
 RUN mkdir -p /opt/liftie \
     && cd /opt/liftie \
     && git init -q \
