@@ -3,6 +3,18 @@
 All notable changes to the Liftie add-on are documented here. Versions track
 the bundled Liftie release with a `-N` packaging suffix (e.g. `4.4.0-1`).
 
+## 4.4.2-1 — 2026-11-09
+
+- Bundled Liftie version: **4.4.1 → 4.4.2**.
+- **Updated bundled Liftie** `c788691` → `05bbe05` ([upstream changes](https://github.com/pirxpilot/liftie/compare/c788691e3b9019911efeba3c7c82bea1660090f0...05bbe05e39c601640eea23ddcd8cf36ab883eda4)).
+- Resorts: 201 bundled — no resort changes.
+- Upstream commits:
+  - Release 4.4.2
+  - Response has extra spaces
+  - ABasin test case has BMX open
+  - Update abasin tests to be JSON format
+  - Arapahoe Basin has changed to a common API; update name to match marketing (Arapahoe)
+
 ## 4.4.1-1 — 2026-09-21
 
 - Bundled Liftie version: **4.4.0 → 4.4.1**.
